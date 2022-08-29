@@ -1,0 +1,25 @@
+<h4>撮影した場所をクリック！</h4>
+  <%= form_with model: post do |f| %>
+    <div class="row">
+      <%= f.label :image, "・画像を選択" %> </br>
+      <%= f.file_field :image, accept: "image/*" %>
+    </div>
+
+    <div class="row">
+      <%= f.label :body, "・本文" %> </br>
+      <%= f.text_area :body %>
+    </div>
+
+    <!--タグの投稿機能-->
+    <div class="row">
+      <%= f.label :name, "・タグ「,(カンマ)」で複数追加" %> </br>
+      <%= f.text_field :name %>
+    </div>
+
+    <!--場所の投稿機能-->
+
+    <div class="row">
+      <%= f.submit "投稿" %>
+    </div>
+
+  <% end %>

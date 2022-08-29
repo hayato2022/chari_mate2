@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <!--プロフィール画像-->
+    </div>
+    <div class="col">
+      <%= @post.user.name %>
+    </div>
+    <div class="col">
+      <%= link_to "編集する", edit_post_path(@post.id), class: "btn btn-success" %>
+    </div>
+    <div class="col">
+      <%= link_to "削除する", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <%= image_tag @post.get_image(700,400) %>
+</div>
+
+<div class="row">
+  <p><%= l @post.created_at %></p>
+</div>
+
+<div class="row">
+  <div class="col">
+    <!--いいね数-->
+  </div>
+  <div class="col">
+    <!--コメント数-->
+  </div>
+</div>
+
+<div class="row">
+  <p><%= @post.body %></p>
+</div>
+
+<div class="row">
+  <% @post_tags.each do |tag| %>
+    <%= link_to posts_path(tag_id: tag.id) do %>
+      <%= tag.name %>
+    <% end %>
+  <% end %>
+</div>

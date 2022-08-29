@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <h4><%= @user.name %></h4>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= image_tag @user.get_profile_image(100,100) %>
+    </div>
+    <div class="col">
+      <!--フォロワー-->
+    </div>
+    <div class="col">
+      <!--フォロー-->
+    </div>
+  </div>
+  <div class="row">
+    <%= @user.introduction %>
+  </div>
+  <div class="row">
+    <% if @user == current_user %>
+      <%= link_to "プロフィールを編集", edit_user_path(@user.id) %>
+    <% elsif %>
+      <!--フォロー中の表示-->
+    <% else %>
+      <!--フォローするの表示-->
+    <% end %>
+  </div>
+  <div class="row">
+    <% @posts.each do |post| %>
+      <%= image_tag post.get_image(300,250) %>
+    <% end %>
+  </div>
+</div>

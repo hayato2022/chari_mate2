@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h4><strong>本当に退会しますか</strong></h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h5>
+        退会するとユーザー情報や </br>
+        今までの投稿が閲覧できなくなります</br>
+        退会する場合は「退会する」ボタンをクリックしてください
+      </h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= link_to "退会しない", user_path(@user.id), class: "btn btn-primary" %>
+    </div>
+    <div class="col">
+      <%= link_to "退会する", users_withdrawal_path, method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>

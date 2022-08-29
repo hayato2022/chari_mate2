@@ -1,0 +1,22 @@
+<h3>ログイン</h3>
+
+<%= form_with model: @user, url: user_session_path do |f| %>
+  <div class="field">
+    <%= f.label :email, "メールアドレス" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, "パスワード" %>
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= f.submit "ログイン" %>
+  </div>
+<% end %>
+
+<h3>ユーザー登録がまだの方</h3>
+<p><%= link_to "こちら", new_user_registration_path %>から新規登録</p>

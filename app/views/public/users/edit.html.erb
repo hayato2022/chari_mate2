@@ -1,0 +1,60 @@
+
+<div class="container">
+  <div class="row">
+    <% if @user.errors.any? %>
+      <%= @user.errors.count %>件のエラーが発生しました
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+  <%= form_with model: @user do |f| %>
+  <div class="row">
+    <div class="col">
+      <h4>プロフィール編集</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= f.label :profile_image, "プロフィール画像" %>
+    </div>
+    <div class="col">
+      <%= f.file_field :profile_image, accept: "image/*" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= f.label :name, "ユーザー名" %>
+    </div>
+    <div class="col">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= f.label :email, "メールアドレス" %>
+    </div>
+    <div class="col">
+      <%= f.text_field :email %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= f.label :introduction, "自己紹介" %>
+    </div>
+    <div class="col">
+      <%= f.text_area :introduction %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      <%= f.submit "変更を保存", class: "btn btn-success" %>
+      <!--退会ボタン-->
+      <%= link_to "退会", users_unsubscribe_path, class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>
+<% end %>

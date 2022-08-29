@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <h3>みんなの投稿一覧</h3>
+  </div>
+
+  <div class="row">
+    <% @tag_list.each do |tag| %>
+      <%= link_to posts_path(tag_id: tag.id) do %>
+        <%= tag.name %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <% @posts.each do |post| %>
+  <div class="row">
+    <div class="col">
+       <!--プロフィール画像-->
+    </div>
+    <div class="col">
+      <p><%= post.user.name %></p>
+    </div>
+    <div class="row">
+      <%= link_to post_path(post.id) do %>
+        <%= image_tag post.get_image(350,300) %>
+      <% end %>
+    </div>
+    <div class="row">
+      <div class="col">
+        <!--いいね数-->
+      </div>
+      <div class="col">
+        <!--コメント-->
+      </div>
+      <div class="row">
+        <%= post.body %>
+      </div>
+
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
